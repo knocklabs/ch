@@ -205,7 +205,7 @@ defimpl DBConnection.Query, for: Ch.Query do
     seconds = DateTime.to_unix(dt, :second)
 
     case microsecond do
-      {val, size} when size > 0 ->
+      {val, size} when val > 0 ->
         size = round(:math.pow(10, size))
         Float.to_string((seconds * size + val) / size)
 
